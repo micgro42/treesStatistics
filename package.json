@@ -1,0 +1,27 @@
+{
+  "name": "treesStatistics",
+  "version": "0.1.0",
+  "description": "Dashboad for statistics of the Berlin trees dataset",
+  "main": "index.js",
+  "author": "Michael Große <mic.grosse@googlemail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-core": "^6.25.0",
+    "babel-loader": "^7.1.1",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "html-webpack-plugin": "^2.29.0",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "webpack": "^3.0.0",
+    "webpack-dev-server": "^2.5.0"
+  },
+  "dependencies": {
+    "crossfilter": "^1.3.12",
+    "d3": "^4.9.1",
+    "dc": "^2.1.7"
+  },
+  "scripts": {
+    "start": "webpack-dev-server"
+  }
+}
