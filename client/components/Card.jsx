@@ -2,12 +2,14 @@ import React from 'react';
 import dc from 'dc';
 import { scaleLinear } from 'd3-scale';
 import crossfilter from 'crossfilter';
+import data from '../data.js';
 
 export default class Card extends React.Component {
 
     componentDidMount(){
         console.log('card did mount');
         const chart = dc.barChart(`#${this.props.id}`);
+        const parameter = this.props.data.parameter;
         const experiments = [
             {
                 Expt: "1",
@@ -24,20 +26,23 @@ export default class Card extends React.Component {
                 Run: "3",
                 Speed: 900,
             },
-        ];  
-        var ndx = crossfilter(experiments);
+        ];
+        // var ndx = crossfilter(experiments);
+        var ndx = crossfilter(data);
         var runDimension = ndx.dimension(function(d) {
-            return +d.Run;
+            return d[parameter];
+            // return +d.Stammumfg;
         });
         var speedSumGroup = runDimension.group().reduceSum(function(d) {
-            return d.Speed * d.Run / 1000;
+            return 1;//Math.floor(d.Stammumfg/10)*10;
+            // return Math.floor(d.Stammumfg/10)*10;
         });
 
 
         chart
   .width(768)
   .height(480)
-  .x(scaleLinear().domain([1, 20]))
+  .x(scaleLinear().domain([1, 300]))
   .brushOn(false)
   .yAxisLabel("This is the Y Axis!")
   .dimension(runDimension)
