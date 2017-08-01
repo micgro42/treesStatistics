@@ -28,12 +28,12 @@ export default class Card extends React.Component {
             },
         ];
         // var ndx = crossfilter(experiments);
-        var ndx = crossfilter(data);
-        var runDimension = ndx.dimension(function(d) {
+        const ndx = crossfilter(data);
+        const runDimension = ndx.dimension(function(d) {
             return d[parameter];
             // return +d.Stammumfg;
         });
-        var speedSumGroup = runDimension.group().reduceSum(function(d) {
+        const speedSumGroup = runDimension.group().reduceSum(function(d) {
             return 1;//Math.floor(d.Stammumfg/10)*10;
             // return Math.floor(d.Stammumfg/10)*10;
         });
