@@ -1,6 +1,6 @@
 {
   "name": "treesStatistics",
-  "version": "0.1.0",
+  "version": "0.0.1",
   "description": "Dashboad for statistics of the Berlin trees dataset",
   "main": "index.js",
   "author": "Michael Große <mic.grosse@googlemail.com>",
