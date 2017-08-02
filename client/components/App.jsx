@@ -12,7 +12,12 @@ export default class App extends React.Component {
     render() {
         return (
             <div className="wrapper">
-                <Navigation />
+                <Navigation
+                    selectedCards={this.props.selectedCards}
+                    cardStore={this.props.cardStore}
+                    addCard={this.props.addCard}
+                    removeCard={this.props.removeCard}
+                />
                 <div style={{textAlign: 'center'}}>
                     {
                         this.props.selectedCards.map((key) => {
