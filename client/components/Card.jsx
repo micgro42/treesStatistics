@@ -58,11 +58,19 @@ chart.render();
 
     render() {
         console.log(this.props);
+        const style = {
+            'display': 'inline-block',
+            'boxShadow': '0 0 0.5em #999',
+            'marginBottom': '1rem',
+            'padding': '1rem',
+        };
         return (
             <div>
-            <h2>hello world chart</h2>
-            <div id={this.props.id}/>
-            {/*<div id=${this.props.key} />);*/}
-        </div>);
+                <div className="cardWrapper" style={style}>
+                    <h2>{this.props.data.parameter}</h2>
+                    <div id={this.props.id}/>
+                    {/*<div id=${this.props.key} />);*/}
+                </div>
+            </div>);
     }
 }
