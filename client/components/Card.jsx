@@ -1,12 +1,12 @@
 import React from 'react';
 import dc from 'dc';
-import { scaleLinear } from 'd3-scale';
+import {scaleLinear} from 'd3-scale';
 import crossfilter from 'crossfilter';
 import data from '../data.js';
 
 export default class Card extends React.Component {
 
-    componentDidMount(){
+    componentDidMount() {
         console.log('card did mount');
         const chart = dc.barChart(`#${this.props.id}`);
         const parameter = this.props.data.parameter;
@@ -29,30 +29,31 @@ export default class Card extends React.Component {
         ];
         // var ndx = crossfilter(experiments);
         const ndx = crossfilter(data);
-        const runDimension = ndx.dimension(function(d) {
+        const runDimension = ndx.dimension(function (d) {
             return d[parameter];
             // return +d.Stammumfg;
         });
-        const speedSumGroup = runDimension.group().reduceSum(function(d) {
+        const speedSumGroup = runDimension.group().reduceSum(function (d) {
             return 1;//Math.floor(d.Stammumfg/10)*10;
             // return Math.floor(d.Stammumfg/10)*10;
         });
 
 
         chart
-  .width(768)
-  .height(480)
-  .x(scaleLinear().domain([1, 300]))
-  .brushOn(false)
-  .yAxisLabel("This is the Y Axis!")
-  .dimension(runDimension)
-  .group(speedSumGroup)
-  .on('renderlet', function(chart) {
-    chart.selectAll('rect').on("click", function(d) {
-      console.log("click!", d);
-    });
-  });
-chart.render();
+            .width(768)
+            .height(480)
+            .x(scaleLinear().domain([1, 300]))
+            .brushOn(false)
+            .yAxisLabel("")
+            .xAxisLabel("")
+            .dimension(runDimension)
+            .group(speedSumGroup)
+            .on('renderlet', function (chart) {
+                chart.selectAll('rect').on("click", function (d) {
+                    console.log("click!", d);
+                });
+            });
+        chart.render();
     }
 
 
