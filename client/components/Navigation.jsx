@@ -22,7 +22,7 @@ export default class Navigation extends React.Component {
                             }
                             return (<li key={key}>
                                 <button className={state} onClick={() => onClickHandler(key)}>
-                                    {action} {key}
+                                    {action} {cardData.parameter}
                                 </button>
                             </li>);
                         })
