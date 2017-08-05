@@ -8,7 +8,7 @@ function seletedCards(currentState = [], action) {
                 action.cardId,
                 ];
         case 'REMOVE_CARD':
-            const index = currentState.findIndex(key => action.cardId);
+            const index = currentState.findIndex(key => action.cardId === key);
             return [
                 ...currentState.slice(0, index),
                 ...currentState.slice(index+1),
