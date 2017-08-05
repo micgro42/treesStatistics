@@ -1,8 +1,6 @@
 function seletedCards(currentState = [], action) {
     switch (action.type) {
         case 'ADD_CARD':
-            console.log('ADD_CARD');
-            console.log(currentState);
             return [
                 ...currentState,
                 action.cardId,
