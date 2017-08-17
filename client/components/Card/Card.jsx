@@ -2,7 +2,8 @@ import React from 'react';
 import dc from 'dc';
 import {scaleLinear} from 'd3-scale';
 import crossfilter from 'crossfilter';
-import data from '../data.js';
+import data from '../../data.js';
+import styles from './Card.css';
 
 export default class Card extends React.Component {
 
@@ -67,7 +68,7 @@ export default class Card extends React.Component {
         };
         return (
             <div>
-                <div className="cardWrapper" style={style}>
+                <div className={styles.card}>
                     <h2>{this.props.data.parameter}</h2>
                     <div id={this.props.id}/>
                     {/*<div id=${this.props.key} />);*/}
